@@ -1,0 +1,51 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: chefkitchen-demo #your_aws_ssh_key_here
+  region: ap-southeast-1 
+  subnet_id: subnet-039021dd036a889df # your_subnet
+  security_group_ids: sg-063bf9b689a9c8fbe # your_security_group
+  associate_public_ip: true # public subnet (not isolated, not private)
+  instance_type: t2.micro
+  tags:
+    Name: "node-ubuntu2204-aws-sg" #node-ubuntu1804-aws-sg
+    User: Administrator
+    X-Contact: "Administrator" #your_name
+    X-Application: "TESTAPP" #your_app_name
+    X-Dept: "CONSULTING" #your_dept
+    X-Customer: "Test"
+    X-Project: "AWS-Chef-Demo"
+    X-Termination-Date: "2020-06-28T12:00:30Z"
+    X-TTL: 2
+
+provisioner:
+  name: chef_zero
+  product_name: chef
+  chef_license: accept
+  
+verifier:
+  name: inspec
+  format: documentation
+
+platforms:
+  - name: ubuntu-22.04
+    driver:
+      block_device_mappings:
+        - device_name: /dev/sda1
+          ebs:
+            volume_type: gp2
+            # virtual_name: test
+            volume_size: 8
+            delete_on_termination: true
+    transport:
+      username: ubuntu
+      ssh_key: C:\tools\Keypair/chefkitchen-demo.pem #your_pem
+
+suites:
+  - name: default
+    run_list:
+      - recipe[node-ubuntu2204-aws-sg::default]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
