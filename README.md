@@ -16,14 +16,18 @@ The primary purpose of Chef KitchenCI is to automate the process of testing and 
 
 [Click Here](https://community.chef.io/downloads/tools/workstation) to download and install Chef Workstation on your laptop.
 Verify the installation, run:
-`chef -v`
-`Chef Workstation version: 23.5.1040
+```
+chef -v
+```
+```
+Chef Workstation version: 23.5.1040
 Chef InSpec version: 5.21.29
 Chef CLI version: 5.6.11
 Chef Habitat version: 1.6.652
 Test Kitchen version: 3.5.0
 Cookstyle version: 7.32.2
-Chef Infra Client version: 18.2.7`
+Chef Infra Client version: 18.2.7
+```
 
 Chef Workstation installs everything you need to get started using Chef products on Windows, Mac and Linux. It includes:
 - Chef Workstation App
@@ -33,6 +37,8 @@ Chef Workstation installs everything you need to get started using Chef products
 - Test Kitchen
 - Cookstyle
 - Various Test Kitchen and Knife plugins for clouds
+
+---
 
 # Spin up ubuntu machine using kitchen
 
@@ -47,6 +53,7 @@ Chef Workstation installs everything you need to get started using Chef products
  
  ![image](https://github.com/kyinaing/spin_up-ubuntu-with-kitchenCI/assets/12751896/ac780e24-9807-4748-a38f-9a763e5c11ba)
 
+---
 ## Step for AWS
 
 - Before edit the kitchen.yml, you should create and get the information from AWS Console for following resources,
@@ -59,7 +66,8 @@ Chef Workstation installs everything you need to get started using Chef products
 
 - Update kitchen.yml as below
 
-`---
+```
+---
 driver:
   name: ec2
   aws_ssh_key_id: chefkitchen-demo #your_aws_ssh_key_here
@@ -110,11 +118,11 @@ suites:
       inspec_tests:
         - test/integration/default
     attributes:
-`
-
+```
+---
 ## Run Kitchen Command from $HOME/chef-aws/cookbooks/node-ubuntu2204-aws-sg
 
-`
+```
 PS C:\Cloud-Learning\chef-demo\cookbooks\node-ubuntu2204-aws-sg> kitchen list
 Instance             Driver  Provisioner  Verifier  Transport  Last Action    Last Error
 default-ubuntu-2204  Ec2     ChefInfra    Inspec    Ssh        <Not Created>  <None>
@@ -142,11 +150,11 @@ are responsible for your incurred costs.
        [SSH] Established
        Finished creating <default-ubuntu-2204> (0m55.84s).
 -----> Test Kitchen is finished. (1m0.73s)
-`
+```
   
 ## Try to Kitchen Login
   
-`
+```
   PS C:\Cloud-Learning\chef-demo\cookbooks\node-ubuntu2204-aws-sg> kitchen login
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
@@ -204,5 +212,6 @@ See https://ubuntu.com/esm or run: sudo pro status
 
 Last login: Sat Jun 10 17:40:40 2023 from 49.228.233.87
 ubuntu@ip-172-31-64-111:~$
-`
+```
+---
  
