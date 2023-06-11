@@ -164,12 +164,13 @@ It is required that your private key files are NOT accessible by others.
 This private key will be ignored.
 Load key "C:/tools/Keypair/chefkitchen-demo.pem": bad permissions
 ubuntu@ec2-18-141-219-223.ap-southeast-1.compute.amazonaws.com: Permission denied (publickey).
-`
+```
+
 ## If bad permissions issue occurred, pls change permission as below
   
 
   - For Linux Machine
-  `
+```
   Open an SSH client.
 
 Locate your private key file. The key used to launch this instance is chefkitchen-demo.pem
@@ -179,9 +180,11 @@ Run this command, if necessary, to ensure your key is not publicly viewable.
 
 Connect to your instance using its Public DNS:
  ec2-18-141-219-223.ap-southeast-1.compute.amazonaws.com
-`
+```
+
 - For Windows Machine
-  
+
+```  
   ![image](https://github.com/kyinaing/spin_up-ubuntu-with-kitchenCI/assets/12751896/43bfb410-d413-42e4-80a6-641792012df1)
 
  - And login again with Kitchen login
