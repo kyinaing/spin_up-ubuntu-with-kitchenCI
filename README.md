@@ -184,12 +184,18 @@ Connect to your instance using its Public DNS:
 
 - For Windows Machine
 
-```  
+    - select .pem file -> right click -> properties
+    - Security > Advanced > Disable inheritance
+    - Remove all Users
+    - Add > Select a principal
+    - In "Enter the object name to select" type your Windows username > ok
+    - Give all permissions > ok > apply
+
   ![image](https://github.com/kyinaing/spin_up-ubuntu-with-kitchenCI/assets/12751896/43bfb410-d413-42e4-80a6-641792012df1)
 
  - And login again with Kitchen login
   
-  `
+  ```
   PS C:\Cloud-Learning\chef-demo\cookbooks\node-ubuntu2204-aws-sg> kitchen login
 Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.19.0-1026-aws x86_64)
 
