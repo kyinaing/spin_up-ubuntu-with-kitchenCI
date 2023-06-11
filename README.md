@@ -214,4 +214,15 @@ Last login: Sat Jun 10 17:40:40 2023 from 49.228.233.87
 ubuntu@ip-172-31-64-111:~$
 ```
 ---
- 
+
+# Delete Kitchen Resource
+The bottom line when comes to cloud is shut it down if we don't need it.
+**kitchen destroy**
+```
+PS C:\Cloud-Learning\chef-demo\cookbooks\node-ubuntu2204-aws-sg> kitchen destroy
+-----> Starting Test Kitchen (v3.5.0)
+-----> Destroying <default-ubuntu-2204>...
+       EC2 instance <i-08e9b9182fcf799a5> destroyed.
+       Finished destroying <default-ubuntu-2204> (0m0.86s).
+-----> Test Kitchen is finished. (0m6.14s)
+```
